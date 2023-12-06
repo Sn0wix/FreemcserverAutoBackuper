@@ -70,7 +70,7 @@ public class HttpUtil {
                 JsonNode rootNode = objectMapper.readTree(responseBody);
                 if (!Boolean.parseBoolean(rootNode.get("success").toString())) {
                     Main.CONFIG.userAgent = getUserAgent(responseBody);
-                    Thread.sleep(1100);
+                    Thread.sleep(Main.CONFIG.delayBetweenRequests);
                     return read(HttpUtil.getServerDetailsRequest(), readDns, false, filename, keys);
                 }
             }
