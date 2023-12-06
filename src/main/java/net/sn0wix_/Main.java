@@ -59,7 +59,7 @@ public class Main {
 
         //USER
         if (CONFIG.checkFmcsApiKey) {
-            HashMap<String, String> apiKeys = HttpUtil.sendAndRead(HttpUtil.getLoginRequest(), false, false, "LastUserLoginResponse.json", "api_key", "success", "ban_reason");
+            HashMap<String, String> apiKeys = HttpUtil.read(HttpUtil.getLoginResponse(), false, false, "LastUserLoginResponse.json", "api_key", "success", "ban_reason");
 
             if (apiKeys != null && apiKeys.containsKey("api_key") && apiKeys.get("success").equals("true")) {
                 CONFIG.fmcsApiKey = apiKeys.get("api_key");
@@ -83,7 +83,7 @@ public class Main {
         HashMap<String, String> domainKeys = null;
 
         if (CONFIG.checkFtpDns) {
-            domainKeys = HttpUtil.sendAndRead(HttpUtil.getServerDetailsRequest(), true, true, "LastServerDetailsResponse.json", "dns_name", "success", "running", "suspension_reason");
+            domainKeys = HttpUtil.read(HttpUtil.getServerDetailsRequest(), true, true, "LastServerDetailsResponse.json", "dns_name", "success", "running", "suspension_reason");
 
             if (domainKeys != null && domainKeys.containsKey("dns_name") && domainKeys.get("success").equals("true")) {
                 CONFIG.ftpServer = domainKeys.get("dns_name");
@@ -203,6 +203,7 @@ public class Main {
             try {
                 file.createNewFile();
             } catch (IOException e) {
+                System.out.println("Can not create log file!");
                 throw new RuntimeException(e);
             }
         }

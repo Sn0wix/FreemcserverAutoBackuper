@@ -28,12 +28,22 @@ public class FtpUtil {
                     System.out.println("Ftp login successful!");
                 }
 
+
                 switch (Main.CONFIG.ftpMode.toLowerCase()) {
-                    case "ascii" -> ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
-                    case "ebcdic" -> ftpClient.setFileType(FTP.EBCDIC_FILE_TYPE);
-                    case "local" -> ftpClient.setFileType(FTP.LOCAL_FILE_TYPE);
-                    default -> ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+                    case "ascii":
+                        ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
+                        break;
+                    case "ebcdic":
+                        ftpClient.setFileType(FTP.EBCDIC_FILE_TYPE);
+                        break;
+                    case "local":
+                        ftpClient.setFileType(FTP.LOCAL_FILE_TYPE);
+                        break;
+                    default:
+                        ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+                        break;
                 }
+
 
                 if (Main.CONFIG.passiveFtp) {
                     ftpClient.enterLocalPassiveMode();

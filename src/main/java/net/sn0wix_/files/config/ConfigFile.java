@@ -38,8 +38,10 @@ public class ConfigFile {
             int i = 29 - dateTime.length();
 
             if (i > 0) {
-                builder.append("0".repeat(i));
-            }else {
+                for (int j = 0; j < i; j++) {
+                    builder.append("0");
+                }
+            } else if (i < 0) {
                 for (int j = 0; j < Math.abs(i); j++) {
                     builder.deleteCharAt(builder.length() - 1);
                 }
