@@ -21,7 +21,7 @@ import java.util.HashMap;
 public class Main {
     public static final ConfigFile CONFIG_FILE = new ConfigFile("FreemcserverBackups", "config.json", "backups", "latestlog.txt");
     public static Config CONFIG = new Config();
-    public static final String CREDITS = "Freemcserver Backupper v1.0 - Made by Sn0wix_: https://linktr.ee/sn0wix_, MIT License, Source code: https://github.com/Sn0wix/FreemcserverAutoBackup";
+    public static final String CREDITS = "Freemcserver Backupper v1.0 - Made by Sn0wix_: https://linktr.ee/sn0wix_, MIT License, Source code: https://github.com/Sn0wix/FreemcserverAutoBackuper";
     public static ConsoleJFrame frame;
 
     public static void main(String[] args) {
